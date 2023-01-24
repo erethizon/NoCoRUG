@@ -5,6 +5,8 @@ author: "Erika Barthelmess, Bio Dept, SLU"
 format: 
   revealjs:
     footer: "git youRself oRganized! NoCoRUG 26 Jan 2023"
+execute: 
+ echo: TRUE
 editor: visual
 ---
 
@@ -16,17 +18,23 @@ library(tidyverse)
 library(here)
 ```
 
-1.  What is version control?
-2.  Git and Github
-3.  Integrating version control with RStudio
-4.  Committing, pushing, pulling
-5.  Learning more
-
-## What is version control?
-
 Is this familiar?
 
 ![](../Images/messy_files.png)
+
+## Overview
+
+Is this familiar?
+
+![](../Images/messy_files_annotated.png)
+
+# We can do better!
+
+## Overview
+
+1.  What is version control?
+2.  Git and Github
+3.  Integrating version control with RStudio
 
 ## What is version control?
 
@@ -110,18 +118,65 @@ Use case
 
 # Integrating version control with RStudio
 
-## I1
+## Required steps
 
-## I2
+1.  Create an account on github
+2.  Install git on your local computer
+3.  Introduce yourself to git
+    -   Make sure git can talk to github
 
-# Committing, pushing, and pulling
+We can do much of this from the RStudio IDE
 
-## CPP 1
+## Let's do it!
 
-## CPP 2
+[A fabulous resource](https://happygitwithr.com/)
 
-# Learning more
+Generate your personal access token
 
-## LM 1
+```{r}
 
-## LM 2
+usethis::create_github_token()
+
+```
+
+Click "generate token"
+
+COPY THE TOKEN TO YOUR CLIPBOARD
+
+## Let's do it!
+
+Now store your PAT
+
+``` r
+
+gitcreds::gitcreds_set()
+```
+
+PASTE YOUR TOKEN
+
+## Let's do it!
+
+The easy way
+
+-   Make the repo on github first
+-   copy the repo address
+-   create a new project in RStudio
+-   choose "version control"
+
+## Let's do it!
+
+![](../Images/choose_version_control.png)
+
+## Let's do it!
+
+![](../Images/then_choose_git.png)
+
+## Let's do it!
+
+![](../Images/paste_repo_address.png)
+
+## Workflow
+
+-   Commit your changes fairly regularly
+-   Push your changes periodically
+-   Pull when you start working on the project again after a while
