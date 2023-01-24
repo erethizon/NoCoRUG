@@ -1,0 +1,36 @@
+---
+#title: "Git youRself oRganized!"
+#author: "Erika Barthelmess"
+format: 
+  revealjs:
+    footer: "git youRself oRganized! NoCoRUG 26 Jan 2023"
+editor: visual
+---
+
+## "Git" youRself oRganized!
+### Using version control with RStudio to improve reproducibility in your work flow
+
+Erika Barthelmess, Biology Department, St. Lawrence University
+
+## Overview
+1. What is version control? 
+2. Git and Github
+3. Integrating version control with RStudio
+4. Committing, pushing, pulling
+5. Learning more
+
+
+## Bullets
+
+When you click the **Render** button a document will be generated that includes:
+
+-   Content authored with markdown
+-   Output from executable code
+
+## Code
+
+When you click the **Render** button a presentation will be generated that includes both content and the output of embedded code. You can embed code like this:
+
+```{r}
+1 + 1
+```

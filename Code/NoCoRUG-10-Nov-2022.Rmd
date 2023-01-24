@@ -1,0 +1,200 @@
+---
+title: "NoCoRUG 10 Nov 2022.Rmd"
+author: "Erika Barthelmess"
+date: "`r Sys.Date()`"
+output: html_document
+---
+
+```{r}
+rm(list = ls())
+library(tidyverse)
+library(shiny)
+```
+Matt's code:
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Example 1: SLU Majors
+
+The first data set is a data set on the number of graduating majors here at SLU since 2000. The data set was originally obtained from SLU's Institutional Research website.
+
+We can read in the data set with:
+
+```{r}
+slumajors_df <- readr::read_csv("https://raw.githubusercontent.com/highamm/nocorugs/main/data/slumajors.csv")
+slumajors_df
+```
+
+The variables include:
+
+* `major`,
+* `year` (2000 through 2022),
+* `n_majors`, the number of majors in that year's graduating class,
+* `n_graduates`, the total number of students in graduating class
+
+We can use `R` to plot the number of graduating majors for each major through time:
+
+```{r}
+library(tidyverse)
+ggplot(data = slumajors_df, aes(x = year, y = n_majors, group = major)) +
+  geom_line(alpha = 0.2) +
+  theme_minimal()
+```
+
+But, we might want to explore a couple of specific majors and how they have grown or declined over time. We can add colour to our visual for a couple of majors we might be interested in:
+
+```{r}
+statcs_df <- slumajors_df |>
+  filter(major == "Statistics" | major == "Computer Science")
+ggplot(data = slumajors_df, aes(x = year, y = n_majors, group = major)) +
+  geom_line(alpha = 0.2) +
+  geom_line(data = statcs_df, aes(colour = major), size = 1.5) +
+  scale_colour_viridis_d(begin = 0.1, end = 0.9) +
+  theme_minimal()
+```
+
+But, the number of graduating students is a bit different from one class to the next. So, we can also adjust for unequal graduating class sizes by calculating the proportion of students with a major in that year's class (and using that as the y-axis on our new plot):
+
+```{r}
+slumajors_df <- slumajors_df |> mutate(prop = n_majors / n_graduates)
+statcs_df <- slumajors_df |> 
+  filter(major == "Statistics" | major == "Computer Science")
+ggplot(data = slumajors_df, aes(x = year, y = prop, group = major)) +
+  geom_line(alpha = 0.2) +
+  geom_line(data = statcs_df, aes(colour = major), size = 1.5) +
+  scale_colour_viridis_d(begin = 0.1, end = 0.9) +
+  theme_minimal()
+```
+
+## Example 2: Course Evaluations
+
+Our second example comes from student evaluations of teaching here at SLU. The university sends instructors a report that contains some summary information about the student evaluations for each course, but we might be able to do a better job at summarising this information by constructing some informative visualizations.
+
+The following data set contains some information on student course evaluations for an instructor over the past three years:
+
+```{r}
+evals_df <- readr::read_csv("https://raw.githubusercontent.com/highamm/nocorugs/main/data/evals.csv")
+evals_df
+```
+
+Variables in the data set include:
+
+* `Term` (semester and year)
+* `Course` (number and section)
+* `Question` (one of nine questions on student course evals)
+* `Agree strongly`, `Agree`, ...., `Disagree strongly` (the number of students responding with each of the "agreeance" statements for that course in that year)
+
+One graph we can make is a graph of the distribution of the responses of students for one particular course. There is a little bit of prep work to make such a graph:
+
+```{r}
+evals_df <- evals_df |>
+  mutate(Question = fct_recode(Question, "1. Valuable" = "1. Course has been a valuable educational experience",
+                               "2. Organized" = "2. Effectively Organized",
+                               "3. Environment" = "3. Environment Conducive to Learning", 
+                               "5a. Fair_Assessment" = "5a. Fair Assessment of Student work",
+                               "5b. Timely_Assessment" = "5b. Timely Assessment of Student Work",
+                               "5c. Constructive_Assessment" = "5c. Constructive Assessment of Student Work",
+                               "6a. Recommend_Instructor" = "6a. Recommend Instructor to another student",
+                               "6b. Recommend_Course" = "6b. Recommend Course to another student",
+                               "6c. Effective_Teacher" = "6c. Instructor was an effective teacher"))
+prof_113 <- evals_df |> 
+  separate(Course, into = c("Number", "Section"), sep = "-") |>
+  pivot_longer(5:11, names_to = "response", values_to = "count") |>
+  mutate(response = fct_relevel(response,
+                                c("Disagree Strongly", "Disagree", 
+                                  "Disagree Somewhat", "Neutral",
+                                  "Agree Somewhat", "Agree",
+                                  "Agree strongly"))) |>
+  group_by(Number, Question, response) |>
+  summarise(totalcount = sum(count)) |>
+  ungroup() |>
+  filter(Number == "113")
+```
+
+The first graph below is a bar plot of the distribution of responses and the second graph is a lollipop graph.
+
+```{r}
+ggplot(data = prof_113, aes(x = response, y = totalcount)) +
+  geom_col(colour = "black", fill = "lightpink") +
+  facet_wrap( ~ Question) +
+  coord_flip() + 
+  labs(title = "STAT 113 Summary",
+       x = "Response",
+       y = "Count") +
+  theme_minimal()
+```
+
+```{r}
+ggplot(data = prof_113, aes(x = response, y = totalcount)) +
+  geom_point(colour = "purple4") +
+  geom_segment(aes(y = 0, yend = totalcount, xend = response), 
+               colour = "purple1") +
+  facet_wrap( ~ Question) +
+  coord_flip() + 
+  labs(title = "STAT 113 Summary",
+       x = "Response",
+       y = "Count") +
+  theme_minimal()
+```
+
+We can also modify the code above to look at how the distribution of responses has changed over time for one particular question or how the distribution of responses is different for different courses. No matter what question we are answering, it is usually more informative to have the entire distribution instead of just a single "mean" response that does not give an idea about how the responses are spread or how many students are giving each response.
+
+## Example 3: MLB Salary Data
+
+For a third static example, we will use data from Major League Baseball on player salaries. The data was obtained from <http://www.usatoday.com/sports/mlb/salaries/2016/player/all/>, though the link now is broken and I could not identify where (if anywhere) usatoday moved the data set to.
+
+We will use this baseball data set to visually examine the salaries of these __862__ baseball players for different positions.
+
+```{r}
+baseball_df <- readr::read_csv("https://raw.githubusercontent.com/highamm/nocorugs/main/data/mlb2016.csv") |>
+  mutate(Salary = parse_number(Salary),
+         Total.Value = parse_number(Total.Value),
+         Avg.Annual = parse_number(Avg.Annual)) |>
+  mutate(POS = fct_reorder(POS, Salary, .fun = median))
+```
+
+We will start by getting the median salary of each position numerically:
+
+```{r}
+baseball_med <- baseball_df |> group_by(POS) |>
+  summarise(med_sal = median(Salary))
+baseball_med
+```
+
+But, a visual can show more than a numerical summary can: we can see the shape of the distribution of salary for each position as well as some other information (depending on the visual).
+
+The following plots show a wide variety of visuals `R` can make. Many of these are "bad" plots for this particular context, but would be good in other contexts (e.g. some would be better for examples where there were fewer levels of the categorical variable, `POS`). 
+
+```{r}
+## plot A: faceted histograms / faceted density plots
+ggplot(data = baseball_df, aes(x = Salary)) +
+  geom_histogram(colour = "black", fill = "white", bins = 15) +
+  facet_wrap(~ POS)
+ggplot(data = baseball_df, aes(x = Salary)) +
+  geom_density() +
+  facet_wrap(~ POS)
+## plot B: coloured frequency plot
+ggplot(data = baseball_df, aes(x = Salary, colour = POS)) +
+  geom_freqpoly(bins = 15)
+## plot C: side-by-side boxplots
+ggplot(data = baseball_df, aes(x = POS, y = Salary)) +
+  geom_boxplot() +
+  coord_flip()
+## plot D: side-by-side violin plots
+ggplot(data = baseball_df, aes(x = POS, y = Salary)) +
+  geom_violin() +
+  coord_flip()
+## plot E: bar plot of median salary
+ggplot(data = baseball_med, aes(x = POS, y = med_sal)) +
+  geom_col(colour = "black", fill = "lightpink") +
+  coord_flip()
+## plot F: point plot with jittered points and median salary
+ggplot(data = baseball_df, aes(x = POS, y = Salary)) +
+  geom_jitter(width = 0.2) +
+  geom_point(data = baseball_med, aes(x = POS, y = med_sal),
+             colour = "magenta") +
+  coord_flip()
+```
+
