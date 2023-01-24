@@ -1,20 +1,21 @@
 <!DOCTYPE html>
 <html lang="en"><head>
-<script src="NCR_26Jan2023_files/libs/clipboard/clipboard.min.js"></script>
-<script src="NCR_26Jan2023_files/libs/quarto-html/tabby.min.js"></script>
-<script src="NCR_26Jan2023_files/libs/quarto-html/popper.min.js"></script>
-<script src="NCR_26Jan2023_files/libs/quarto-html/tippy.umd.min.js"></script>
-<link href="NCR_26Jan2023_files/libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="NCR_26Jan2023_files/libs/quarto-html/quarto-html.min.css" rel="stylesheet" data-mode="light">
-<link href="NCR_26Jan2023_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
+<script src="index_files/libs/clipboard/clipboard.min.js"></script>
+<script src="index_files/libs/quarto-html/tabby.min.js"></script>
+<script src="index_files/libs/quarto-html/popper.min.js"></script>
+<script src="index_files/libs/quarto-html/tippy.umd.min.js"></script>
+<link href="index_files/libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="index_files/libs/quarto-html/quarto-html.min.css" rel="stylesheet" data-mode="light">
+<link href="index_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
   <meta name="generator" content="quarto-1.2.269">
 
-  <title>ncr_26jan2023</title>
+  <meta name="author" content="Erika Barthelmess, Bio Dept, SLU">
+  <title>Git youRself oRganized!</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
-  <link rel="stylesheet" href="NCR_26Jan2023_files/libs/revealjs/dist/reset.css">
-  <link rel="stylesheet" href="NCR_26Jan2023_files/libs/revealjs/dist/reveal.css">
+  <link rel="stylesheet" href="index_files/libs/revealjs/dist/reset.css">
+  <link rel="stylesheet" href="index_files/libs/revealjs/dist/reveal.css">
   <style>
     code{white-space: pre-wrap;}
     span.smallcaps{font-variant: small-caps;}
@@ -28,11 +29,11 @@
       vertical-align: middle;
     }
   </style>
-  <link rel="stylesheet" href="NCR_26Jan2023_files/libs/revealjs/dist/theme/quarto.css" id="theme">
-  <link href="NCR_26Jan2023_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
-  <link href="NCR_26Jan2023_files/libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
-  <link href="NCR_26Jan2023_files/libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
-  <link href="NCR_26Jan2023_files/libs/revealjs/plugin/quarto-support/footer.css" rel="stylesheet">
+  <link rel="stylesheet" href="index_files/libs/revealjs/dist/theme/quarto.css" id="theme">
+  <link href="index_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
+  <link href="index_files/libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
+  <link href="index_files/libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
+  <link href="index_files/libs/revealjs/plugin/quarto-support/footer.css" rel="stylesheet">
   <style type="text/css">
 
   .callout {
@@ -322,21 +323,24 @@
   <div class="reveal">
     <div class="slides">
 
+<section id="title-slide" class="quarto-title-block center">
+  <h1 class="title">Git youRself oRganized!</h1>
+  <p class="subtitle">Using version control with RStudio to improve reproducibility in your work flow</p>
 
-<section class="slide level2">
+<div class="quarto-title-authors">
+<div class="quarto-title-author">
+<div class="quarto-title-author-name">
+Erika Barthelmess, Bio Dept, SLU 
+</div>
+</div>
+</div>
 
+</section>
+<section id="overview" class="slide level2">
+<h2>Overview</h2>
 <div class="cell">
 
 </div>
-</section>
-<section id="git-yourself-organized" class="slide level2">
-<h2>“Git” youRself oRganized!</h2>
-<h3 id="using-version-control-with-rstudio-to-improve-reproducibility-in-your-work-flow">Using version control with RStudio to improve reproducibility in your work flow</h3>
-<p>Erika Barthelmess, Biology Department, St.&nbsp;Lawrence University</p>
-
-<img data-src="Images/Git-logo.png" class="r-stretch"></section>
-<section id="overview" class="slide level2">
-<h2>Overview</h2>
 <ol type="1">
 <li>What is version control?</li>
 <li>Git and Github</li>
@@ -345,28 +349,88 @@
 <li>Learning more</li>
 </ol>
 </section>
-<section>
-<section id="what-is-version-control" class="title-slide slide level1 center">
-<h1>What is version control?</h1>
+<section id="what-is-version-control" class="slide level2">
+<h2>What is version control?</h2>
+<p>Is this familiar?</p>
 
+<img data-src="../Images/messy_files.png" class="r-stretch"></section>
+<section id="what-is-version-control-1" class="slide level2">
+<h2>What is version control?</h2>
+<ul>
+<li><p>A way to track and manage changes to code</p></li>
+<li><p>Takes “snapshots” of file changes</p></li>
+<li><p>Can roll back to earlier versions of the file</p></li>
+<li><p>Improves collaboration workflows (students, colleagues)</p></li>
+</ul>
 </section>
-<section id="vc-1" class="slide level2">
-<h2>VC 1</h2>
-</section>
-<section id="vc-2" class="slide level2">
-<h2>VC 2</h2>
-</section></section>
 <section>
 <section id="git-and-github" class="title-slide slide level1 center">
 <h1>Git and Github</h1>
 
 </section>
-<section id="ggh-1" class="slide level2">
-<h2>GGH 1</h2>
+<section id="git" class="slide level2">
+<h2>Git</h2>
+<p>What is git?</p>
+<ul>
+<li><p>one of many version control systems you can use</p></li>
+<li><p>operates locally on your hard drive</p></li>
+</ul>
 </section>
-<section id="ggh-2" class="slide level2">
-<h2>GGH 2</h2>
-</section></section>
+<section id="git-1" class="slide level2">
+<h2>Git</h2>
+
+<img data-src="../Images/git_slides/Slide10.png" class="r-stretch"></section>
+<section class="slide level2">
+
+
+<img data-src="../Images/git_slides/Slide2.png" class="r-stretch"></section>
+<section class="slide level2">
+
+
+<img data-src="../Images/git_slides/Slide3.png" class="r-stretch"></section>
+<section class="slide level2">
+
+
+<img data-src="../Images/git_slides/Slide4.png" class="r-stretch"></section>
+<section class="slide level2">
+
+
+<img data-src="../Images/git_slides/Slide6.png" class="r-stretch"></section>
+<section class="slide level2">
+
+
+<img data-src="../Images/git_slides/Slide7.png" class="r-stretch"></section>
+<section class="slide level2">
+
+
+<img data-src="../Images/git_slides/Slide8.png" class="r-stretch"></section>
+<section id="github" class="slide level2">
+<h2>Github</h2>
+<p>What is github?</p>
+<ul>
+<li><p>distributed version control system</p></li>
+<li><p>allows you to sync work between computers, users</p></li>
+<li><p>holds remote repositories in the cloud</p></li>
+</ul>
+</section>
+<section id="github-1" class="slide level2">
+<h2>Github</h2>
+
+<img data-src="../Images/git_slides/Slide12.png" class="r-stretch"></section>
+<section id="github-2" class="slide level2">
+<h2>Github</h2>
+
+<img data-src="../Images/git_slides/Slide13.png" class="r-stretch"></section>
+<section id="github-3" class="slide level2">
+<h2>Github</h2>
+<p>Use case</p>
+
+<img data-src="../Images/git_slides/Slide14.png" class="r-stretch"></section>
+<section id="github-4" class="slide level2">
+<h2>Github</h2>
+<p>Use case</p>
+
+<img data-src="../Images/git_slides/Slide15.png" class="r-stretch"></section></section>
 <section>
 <section id="integrating-version-control-with-rstudio" class="title-slide slide level1 center">
 <h1>Integrating version control with RStudio</h1>
@@ -399,11 +463,6 @@
 </section>
 <section id="lm-2" class="slide level2">
 <h2>LM 2</h2>
-<p>When you click the <strong>Render</strong> button a document will be generated that includes:</p>
-<ul>
-<li>Content authored with markdown</li>
-<li>Output from executable code</li>
-</ul>
 <div class="footer footer-default">
 <p>git youRself oRganized! NoCoRUG 26 Jan 2023</p>
 </div>
@@ -412,19 +471,19 @@
   </div>
 
   <script>window.backupDefine = window.define; window.define = undefined;</script>
-  <script src="NCR_26Jan2023_files/libs/revealjs/dist/reveal.js"></script>
+  <script src="index_files/libs/revealjs/dist/reveal.js"></script>
   <!-- reveal.js plugins -->
-  <script src="NCR_26Jan2023_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.js"></script>
-  <script src="NCR_26Jan2023_files/libs/revealjs/plugin/pdf-export/pdfexport.js"></script>
-  <script src="NCR_26Jan2023_files/libs/revealjs/plugin/reveal-menu/menu.js"></script>
-  <script src="NCR_26Jan2023_files/libs/revealjs/plugin/reveal-menu/quarto-menu.js"></script>
-  <script src="NCR_26Jan2023_files/libs/revealjs/plugin/quarto-support/support.js"></script>
+  <script src="index_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.js"></script>
+  <script src="index_files/libs/revealjs/plugin/pdf-export/pdfexport.js"></script>
+  <script src="index_files/libs/revealjs/plugin/reveal-menu/menu.js"></script>
+  <script src="index_files/libs/revealjs/plugin/reveal-menu/quarto-menu.js"></script>
+  <script src="index_files/libs/revealjs/plugin/quarto-support/support.js"></script>
   
 
-  <script src="NCR_26Jan2023_files/libs/revealjs/plugin/notes/notes.js"></script>
-  <script src="NCR_26Jan2023_files/libs/revealjs/plugin/search/search.js"></script>
-  <script src="NCR_26Jan2023_files/libs/revealjs/plugin/zoom/zoom.js"></script>
-  <script src="NCR_26Jan2023_files/libs/revealjs/plugin/math/math.js"></script>
+  <script src="index_files/libs/revealjs/plugin/notes/notes.js"></script>
+  <script src="index_files/libs/revealjs/plugin/search/search.js"></script>
+  <script src="index_files/libs/revealjs/plugin/zoom/zoom.js"></script>
+  <script src="index_files/libs/revealjs/plugin/math/math.js"></script>
   <script>window.define = window.backupDefine; window.backupDefine = undefined;</script>
 
   <script>

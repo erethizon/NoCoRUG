@@ -1,0 +1,20 @@
+{
+  "hash": "08978761ee33c813ccd424e6b78f26e7",
+  "result": {
+    "markdown": "---\ntitle: \"Git youRself oRganized!\"\nsubtitle: \"Using version control with RStudio to improve reproducibility in your work flow\"\nauthor: \"Erika Barthelmess, Bio Dept, SLU\"\nformat: \n  revealjs:\n    footer: \"git youRself oRganized! NoCoRUG 26 Jan 2023\"\neditor: visual\n---\n\n\n## Overview\n\n\n::: {.cell}\n\n:::\n\n\n1.  What is version control?\n2.  Git and Github\n3.  Integrating version control with RStudio\n4.  Committing, pushing, pulling\n5.  Learning more\n\n# What is version control?\n\n## VC 1\n\n## VC 2\n\n# Git and Github\n\n## GGH 1\n\n![ ](../Images/git_slides/Slide2.png)\n\n## GGH 2\n![ ](../Images/git_slides/Slide3.png)\n## GGH 3\n![ ](../Images/git_slides/Slide4.png)\n## GGH 4\n![ ](../Images/git_slides/Slide5.png)\n## GGH 5\n![ ](../Images/git_slides/Slide6.png)\n\n## GGH 6\n![ ](../Images/git_slides/Slide7.png)\n\n## GGH 7\n![ ](../Images/git_slides/Slide8.png)\n\n# Integrating version control with RStudio\n\n## I1\n\n## I2\n\n# Committing, pushing, and pulling\n\n## CPP 1\n\n## CPP 2\n\n# Learning more\n\n## LM 1\n\n## LM 2\n\nWhen you click the **Render** button a document will be generated that includes:\n\n-   Content authored with markdown\n-   Output from executable code\n",
+    "supporting": [
+      "NCR_26Jan2023_files"
+    ],
+    "filters": [
+      "rmarkdown/pagebreak.lua"
+    ],
+    "includes": {
+      "include-after-body": [
+        "\n<script>\n  // htmlwidgets need to know to resize themselves when slides are shown/hidden.\n  // Fire the \"slideenter\" event (handled by htmlwidgets.js) when the current\n  // slide changes (different for each slide format).\n  (function () {\n    // dispatch for htmlwidgets\n    function fireSlideEnter() {\n      const event = window.document.createEvent(\"Event\");\n      event.initEvent(\"slideenter\", true, true);\n      window.document.dispatchEvent(event);\n    }\n\n    function fireSlideChanged(previousSlide, currentSlide) {\n      fireSlideEnter();\n\n      // dispatch for shiny\n      if (window.jQuery) {\n        if (previousSlide) {\n          window.jQuery(previousSlide).trigger(\"hidden\");\n        }\n        if (currentSlide) {\n          window.jQuery(currentSlide).trigger(\"shown\");\n        }\n      }\n    }\n\n    // hookup for slidy\n    if (window.w3c_slidy) {\n      window.w3c_slidy.add_observer(function (slide_num) {\n        // slide_num starts at position 1\n        fireSlideChanged(null, w3c_slidy.slides[slide_num - 1]);\n      });\n    }\n\n  })();\n</script>\n\n"
+      ]
+    },
+    "engineDependencies": {},
+    "preserve": {},
+    "postProcess": true
+  }
+}

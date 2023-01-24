@@ -1,0 +1,127 @@
+---
+title: "Git youRself oRganized!"
+subtitle: "Using version control with RStudio to improve reproducibility in your work flow"
+author: "Erika Barthelmess, Bio Dept, SLU"
+format: 
+  revealjs:
+    footer: "git youRself oRganized! NoCoRUG 26 Jan 2023"
+editor: visual
+---
+
+## Overview
+
+```{r, echo = FALSE, results = FALSE}
+rm(list = ls())
+library(tidyverse)
+library(here)
+```
+
+1.  What is version control?
+2.  Git and Github
+3.  Integrating version control with RStudio
+4.  Committing, pushing, pulling
+5.  Learning more
+
+## What is version control?
+
+Is this familiar?
+
+![](../Images/messy_files.png)
+
+## What is version control?
+
+-   A way to track and manage changes to code
+
+-   Takes "snapshots" of file changes
+
+-   Can roll back to earlier versions of the file
+
+-   Improves collaboration workflows (students, colleagues)
+
+# Git and Github
+
+## Git
+
+What is git?
+
+-   one of many version control systems you can use
+
+-   operates locally on your hard drive
+
+## Git
+
+![](../Images/git_slides/Slide10.png)
+
+------------------------------------------------------------------------
+
+![](../Images/git_slides/Slide2.png)
+
+------------------------------------------------------------------------
+
+![](../Images/git_slides/Slide3.png)
+
+------------------------------------------------------------------------
+
+![](../Images/git_slides/Slide4.png)
+
+------------------------------------------------------------------------
+
+![](../Images/git_slides/Slide6.png)
+
+------------------------------------------------------------------------
+
+![](../Images/git_slides/Slide7.png)
+
+------------------------------------------------------------------------
+
+![](../Images/git_slides/Slide8.png)
+
+------------------------------------------------------------------------
+
+## Github
+
+What is github?
+
+-   distributed version control system
+
+-   allows you to sync work between computers, users
+
+-   holds remote repositories in the cloud
+
+## Github
+
+![](../Images/git_slides/Slide12.png)
+
+## Github
+
+![](../Images/git_slides/Slide13.png)
+
+## Github
+
+Use case
+
+![](../Images/git_slides/Slide14.png)
+
+## Github
+
+Use case
+
+![](../Images/git_slides/Slide15.png)
+
+# Integrating version control with RStudio
+
+## I1
+
+## I2
+
+# Committing, pushing, and pulling
+
+## CPP 1
+
+## CPP 2
+
+# Learning more
+
+## LM 1
+
+## LM 2
